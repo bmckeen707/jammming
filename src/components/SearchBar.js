@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 
 function SearchBar(props) {
-    
-    const [searchBar, setSearchBar] = useState('');
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.onSearch(searchBar);
+        props.onSearch(props.searchBar);
     }
 
     return (
@@ -16,8 +14,8 @@ function SearchBar(props) {
                        name="searchBar" 
                        type="text" 
                        placeholder="Song Name"
-                       value={searchBar} 
-                       onChange={(e) => setSearchBar(e.target.value)} />
+                       value={props.searchBar} 
+                       onChange={(e) => props.setSearchBar(e.target.value)} />
                 <button type="submit" >Search</button>
             </form>
         </div>
